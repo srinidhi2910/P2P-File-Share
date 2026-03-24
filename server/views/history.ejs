@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Transfer History</title>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fb;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 60px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #4f46e5;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    th {
+      text-align: left;
+      background: #f1f5f9;
+      padding: 10px;
+    }
+
+    td {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    tr:hover {
+      background: #f9fafb;
+    }
+
+    .empty {
+      text-align: center;
+      color: #888;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Transfer History</h1>
+    <a href="/">← Back to home</a>
+
+    <table>
+      <thead>
+        <tr>
+          <th>File name</th>
+          <th>Size</th>
+          <th>Room</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% transfers.forEach(t => { %>
+          <tr>
+            <td><%= t.fileName %></td>
+            <td><%= (t.fileSize / 1024).toFixed(1) %> KB</td>
+            <td><%= t.roomId %></td>
+            <td><%= new Date(t.completedAt).toLocaleString() %></td>
+          </tr>
+        <% }) %>
+
+        <% if (transfers.length === 0) { %>
+          <tr>
+            <td colspan="4" class="empty">No transfers yet</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
