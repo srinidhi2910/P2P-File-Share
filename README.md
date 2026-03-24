@@ -20,9 +20,9 @@ Features
 
 Tech Stack
 
-Frontend: HTML, CSS, JavaScript (EJS)
-Backend:Node.js, Express
-Real-time: Socket.io
-P2P Communication: WebRTC
-Database: MongoDB (Mongoose)
-Deployment: Render
+- **Frontend:** HTML, CSS, JavaScript (EJS)
+- **Backend:** Node.js, Express
+- **Real-time:** Socket.io
+- **P2P Communication:** WebRTC
+- **Database:** MongoDB (Mongoose)
+- **Deployment:** Render
